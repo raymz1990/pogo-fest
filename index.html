@@ -126,6 +126,13 @@
 
   .badge{display:inline-flex; align-items:center; justify-content:center; font-size:.68rem; font-weight:700; padding:2px 8px; border-radius:999px;}
 
+  .flag-frozen{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:18px; height:18px; border-radius:5px;
+    color:var(--text-faint); font-size:.75rem; cursor:not-allowed; user-select:none;
+    border:1.5px dashed var(--border-soft);
+  }
+
   .pokeball-icon{width:22px; height:22px; border-radius:50%; position:relative; background:linear-gradient(#f45866 0 49%, #0a0d14 49% 51%, #eef1f8 51% 100%); border:2px solid #0a0d14; flex-shrink:0;}
   .pokeball-icon::after{content:""; position:absolute; top:50%; left:50%; width:8px; height:8px; background:#eef1f8; border:2px solid #0a0d14; border-radius:50%; transform:translate(-50%,-50%);}
   .pokeball-icon.spin{animation:spin 2.4s linear infinite;}
@@ -282,18 +289,35 @@ const GEN_INFO = {
 const FLAG_DEFS = [
   { key: "captured",   label: "Captured",    abbr: "CAP",  color: "#22c55e" },
   { key: "shiny",      label: "Shiny",       abbr: "SHINY",color: "#fbbf24" },
+  { key: "hundred",    label: "100% IV",     abbr: "100%", color: "#4f8ef7" },
   { key: "lucky",      label: "Lucky",       abbr: "LUCKY",color: "#22d3ee" },
   { key: "xxl",        label: "XXL",         abbr: "XXL",  color: "#f97316" },
   { key: "xxs",        label: "XXS",         abbr: "XXS",  color: "#f97316" },
-  { key: "hundred",    label: "100% IV",     abbr: "100%", color: "#4f8ef7" },
-  { key: "zero",       label: "0% IV",       abbr: "0%",   color: "#8b93a7" },
+  { key: "mega",       label: "Mega",        abbr: "MEGA", color: "#f45866" },
+  { key: "gigantamax", label: "Gigantamax",  abbr: "GMAX", color: "#ec4899" },
   { key: "shadow",     label: "Shadow",      abbr: "SHDW", color: "#a78bfa" },
   { key: "purified",   label: "Purified",    abbr: "PURE", color: "#eef1f8" },
-  { key: "mega",       label: "Mega",        abbr: "MEGA", color: "#f45866" },
+  { key: "zero",       label: "0% IV",       abbr: "0%",   color: "#8b93a7" },
   { key: "dynamax",    label: "Dynamax",     abbr: "DYNA", color: "#ec4899" },
-  { key: "gigantamax", label: "Gigantamax",  abbr: "GMAX", color: "#ec4899" },
 ];
 const FLAG_KEYS = FLAG_DEFS.map(f => f.key);
+
+/* Species-capability restrictions for special-form flags.
+   A Pokémon can only be flagged Mega/Gigantamax if it can actually take
+   that form in the games. Charizard and Mewtwo are the only two species
+   with both a Mega X and a Mega Y form, so they get two checkboxes
+   instead of one. Every other species either gets a single checkbox
+   (if capable) or a frozen, non-interactive cell (if not). */
+const MEGA_CAPABLE = new Set([
+  3, 6, 9, 15, 18, 65, 80, 94, 115, 127, 130, 142, 150, 181, 208, 212, 214,
+  229, 248, 254, 257, 260, 282, 302, 303, 306, 308, 310, 319, 323, 334, 354,
+  359, 362, 373, 376, 380, 381, 384, 428, 445, 448, 460, 475, 531, 719,
+]);
+const MEGA_XY = new Set([6, 150]); // Charizard, Mewtwo
+const GMAX_CAPABLE = new Set([
+  3, 6, 9, 12, 25, 52, 68, 94, 99, 131, 133, 143, 569, 809, 812, 815, 818,
+  823, 826, 834, 839, 841, 842, 844, 849, 851, 858, 861, 869, 879, 884, 892,
+]);
 
 /* ---------- 2. PERSISTENCE LAYER ------------------------------------------ */
 const STORAGE_KEY = "pokedexTracker.progress.v1";
@@ -363,6 +387,7 @@ function matchesStatus(p, status) {
   if (status === "released") return true; // dataset only contains released species
   if (status === "captured") return Store.get(p.id, "captured");
   if (status === "missing") return !Store.get(p.id, "captured");
+  if (status === "mega") return Store.get(p.id, "mega") || Store.get(p.id, "megaX") || Store.get(p.id, "megaY");
   return Store.get(p.id, status);
 }
 
@@ -393,7 +418,7 @@ const SUMMARY_DEFS = [
   { key: "lucky",     label: "Lucky",         color: "#22d3ee", calc: list => list.filter(p => Store.get(p.id, "lucky")).length },
   { key: "hundred",   label: "100% IV",       color: "#4f8ef7", calc: list => list.filter(p => Store.get(p.id, "hundred")).length },
   { key: "zero",      label: "0% IV",         color: "#8b93a7", calc: list => list.filter(p => Store.get(p.id, "zero")).length },
-  { key: "mega",      label: "Mega",          color: "#f45866", calc: list => list.filter(p => Store.get(p.id, "mega")).length },
+  { key: "mega",      label: "Mega",          color: "#f45866", calc: list => list.filter(p => Store.get(p.id, "mega") || Store.get(p.id, "megaX") || Store.get(p.id, "megaY")).length },
   { key: "shadow",    label: "Shadow",        color: "#a78bfa", calc: list => list.filter(p => Store.get(p.id, "shadow")).length },
   { key: "purified",  label: "Purified",      color: "#eef1f8", calc: list => list.filter(p => Store.get(p.id, "purified")).length },
 ];
@@ -473,14 +498,63 @@ function renderTable() {
   renderSummary();
 }
 
+/* Renders a single checkbox cell for a normal (non-restricted) flag. */
+function checkboxCell(id, flagKey, color, checked) {
+  return `
+    <td class="text-center">
+      <input type="checkbox" class="flag-check" style="--flag-color:${color}"
+             data-id="${id}" data-flag="${flagKey}" ${checked ? "checked" : ""} />
+    </td>`;
+}
+
+/* A frozen cell for species that cannot take that special form at all
+   (e.g. Bulbasaur can never Mega Evolve). Non-interactive on purpose. */
+function frozenCell(title) {
+  return `<td class="text-center"><span class="flag-frozen" title="${title}">—</span></td>`;
+}
+
+/* Mega column: Charizard/Mewtwo get two checkboxes (X/Y), other capable
+   species get a single "mega" checkbox, everything else is frozen. */
+function megaCell(p) {
+  if (MEGA_XY.has(p.id)) {
+    return `
+      <td class="text-center">
+        <div class="flex items-center justify-center gap-1.5">
+          <label class="flex items-center gap-0.5 cursor-pointer" title="Mega ${p.name} X">
+            <input type="checkbox" class="flag-check" style="--flag-color:#f45866"
+                   data-id="${p.id}" data-flag="megaX" ${Store.get(p.id, "megaX") ? "checked" : ""} />
+            <span class="text-[9px] text-[var(--text-muted)]">X</span>
+          </label>
+          <label class="flex items-center gap-0.5 cursor-pointer" title="Mega ${p.name} Y">
+            <input type="checkbox" class="flag-check" style="--flag-color:#f45866"
+                   data-id="${p.id}" data-flag="megaY" ${Store.get(p.id, "megaY") ? "checked" : ""} />
+            <span class="text-[9px] text-[var(--text-muted)]">Y</span>
+          </label>
+        </div>
+      </td>`;
+  }
+  if (MEGA_CAPABLE.has(p.id)) {
+    return checkboxCell(p.id, "mega", "#f45866", Store.get(p.id, "mega"));
+  }
+  return frozenCell(`${p.name} cannot Mega Evolve`);
+}
+
+/* Gigantamax column: only species with a known Gmax factor get a checkbox. */
+function gigantamaxCell(p) {
+  if (GMAX_CAPABLE.has(p.id)) {
+    return checkboxCell(p.id, "gigantamax", "#ec4899", Store.get(p.id, "gigantamax"));
+  }
+  return frozenCell(`${p.name} cannot Gigantamax`);
+}
+
 function rowHtml(p) {
   const captured = Store.get(p.id, "captured");
   const gi = GEN_INFO[p.gen];
-  const cells = FLAG_DEFS.map(f => `
-    <td class="text-center">
-      <input type="checkbox" class="flag-check" style="--flag-color:${f.color}"
-             data-id="${p.id}" data-flag="${f.key}" ${Store.get(p.id, f.key) ? "checked" : ""} />
-    </td>`).join("");
+  const cells = FLAG_DEFS.map(f => {
+    if (f.key === "mega") return megaCell(p);
+    if (f.key === "gigantamax") return gigantamaxCell(p);
+    return checkboxCell(p.id, f.key, f.color, Store.get(p.id, f.key));
+  }).join("");
 
   return `
     <tr class="fade-row ${captured ? "is-captured" : ""}" data-row-id="${p.id}">
