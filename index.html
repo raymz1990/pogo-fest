@@ -328,15 +328,25 @@ const FLAG_KEYS = FLAG_DEFS.map(f => f.key);
    with both a Mega X and a Mega Y form, so they get two checkboxes
    instead of one. Every other species either gets a single checkbox
    (if capable) or a frozen, non-interactive cell (if not). */
+
 const MEGA_CAPABLE = new Set([
-  3, 6, 9, 15, 18, 65, 80, 94, 115, 127, 130, 142, 150, 181, 208, 212, 214,
+  3, 6, 9, 15, 18, 65, 71, 80, 94, 115, 127, 130, 142, 149, 150, 181, 208, 212, 214,
   229, 248, 254, 257, 260, 282, 302, 303, 306, 308, 310, 319, 323, 334, 354,
   359, 362, 373, 376, 380, 381, 384, 428, 445, 448, 460, 475, 531, 719,
 ]);
-const MEGA_XY = new Set([6, 150]); // Charizard, Mewtwo
+const MEGA_XY = new Set([6, 26, 150]); // Charizard, Mewtwo
 const GMAX_CAPABLE = new Set([
   3, 6, 9, 12, 25, 52, 68, 94, 99, 131, 133, 143, 569, 809, 812, 815, 818,
   823, 826, 834, 839, 841, 842, 844, 849, 851, 858, 861, 869, 879, 884, 892,
+]);
+const SHADOW_INELIGIBLE = new Set([
+  21, 22, 25, 26, 35, 36, 39, 40, 46, 47, 84, 85, 108, 118, 119, 124, 128, 132, 133, 134, 135, 136, 151,
+]);
+const LUCKY_INELIGIBLE = new Set([
+  151,
+]);
+const XXL_INELIGIBLE = new Set([
+  151,
 ]);
 
 /* ---------- 2. PERSISTENCE LAYER ------------------------------------------ */
@@ -540,6 +550,9 @@ function renderTable() {
 function isFlagApplicable(p, flagKey) {
   if (flagKey === "mega") return MEGA_CAPABLE.has(p.id) || MEGA_XY.has(p.id);
   if (flagKey === "gigantamax") return GMAX_CAPABLE.has(p.id);
+  if (flagKey === "shadow" || flagKey === "purified") return !SHADOW_INELIGIBLE.has(p.id);
+  if (flagKey === "lucky") return !LUCKY_INELIGIBLE.has(p.id);
+  if (flagKey === "xxl" || flagKey === "xxs") return !XXL_INELIGIBLE.has(p.id);
   return true;
 }
 
@@ -649,10 +662,13 @@ function rowHtml(p) {
   const captured = Store.get(p.id, "captured");
   const gi = GEN_INFO[p.gen];
   const cells = FLAG_DEFS.map(f => {
-    if (f.key === "mega") return megaCell(p);
-    if (f.key === "gigantamax") return gigantamaxCell(p);
-    return checkboxCell(p.id, f.key, f.color, Store.get(p.id, f.key));
-  }).join("");
+  if (f.key === "mega") return megaCell(p);
+  if (f.key === "gigantamax") return gigantamaxCell(p);
+  if ((f.key === "shadow" || f.key === "purified" || f.key === "lucky" || f.key === "xxl" || f.key === "xxs") && !isFlagApplicable(p, f.key)) {
+    return frozenCell(`${p.name} não pode ser ${f.label}`);
+  }
+  return checkboxCell(p.id, f.key, f.color, Store.get(p.id, f.key));
+}).join("");
 
   return `
     <tr class="fade-row ${captured ? "is-captured" : ""}" data-row-id="${p.id}">
