@@ -1,0 +1,2423 @@
+{
+  "1": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "2": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "3": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxs": true,
+    "mega": true,
+    "gigantamax": true,
+    "shadow": true,
+    "purified": true
+  },
+  "4": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "5": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "6": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "megaX": true,
+    "megaY": true,
+    "gigantamax": true,
+    "shadow": true,
+    "purified": true
+  },
+  "7": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "8": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "9": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "mega": true,
+    "gigantamax": true,
+    "shadow": true,
+    "purified": true
+  },
+  "10": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "11": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "12": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "gigantamax": true
+  },
+  "13": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "14": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true
+  },
+  "15": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "mega": true,
+    "shadow": true
+  },
+  "16": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "17": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "18": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "mega": true,
+    "shadow": true,
+    "purified": true
+  },
+  "19": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "20": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "21": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true
+  },
+  "22": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true
+  },
+  "23": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "24": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "25": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "gigantamax": true
+  },
+  "26": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "27": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "28": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "29": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "30": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "31": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "32": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "33": {
+    "captured": true,
+    "lucky": true,
+    "shiny": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "34": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "35": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxs": true
+  },
+  "36": {
+    "xxs": true,
+    "lucky": true,
+    "shiny": true,
+    "captured": true
+  },
+  "37": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "38": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "39": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxs": true
+  },
+  "40": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "41": {
+    "captured": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "42": {
+    "captured": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "43": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "44": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "45": {
+    "purified": true,
+    "xxs": true,
+    "lucky": true,
+    "hundred": true,
+    "shiny": true,
+    "captured": true
+  },
+  "46": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "hundred": true
+  },
+  "47": {
+    "lucky": true,
+    "hundred": true,
+    "shiny": true,
+    "captured": true
+  },
+  "48": {
+    "captured": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "49": {
+    "captured": true,
+    "hundred": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "50": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "51": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "52": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "gigantamax": true,
+    "shadow": true,
+    "purified": true
+  },
+  "53": {
+    "purified": true,
+    "xxs": true,
+    "xxl": true,
+    "lucky": true,
+    "shiny": true,
+    "captured": true
+  },
+  "54": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "55": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "56": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "57": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "58": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "59": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "60": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "61": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "62": {
+    "captured": true,
+    "lucky": true
+  },
+  "63": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "64": {
+    "hundred": true,
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "65": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxl": true,
+    "xxs": true,
+    "mega": true,
+    "shadow": true,
+    "purified": true
+  },
+  "66": {
+    "captured": true,
+    "shiny": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "67": {
+    "captured": true,
+    "shiny": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "68": {
+    "captured": true,
+    "shiny": true,
+    "xxs": true,
+    "gigantamax": true,
+    "shadow": true,
+    "purified": true
+  },
+  "69": {
+    "captured": true,
+    "lucky": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "70": {
+    "captured": true,
+    "lucky": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "71": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "purified": true
+  },
+  "72": {
+    "captured": true,
+    "shadow": true,
+    "purified": true
+  },
+  "73": {
+    "captured": true,
+    "shadow": true,
+    "purified": true
+  },
+  "74": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "hundred": true
+  },
+  "75": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "hundred": true,
+    "shadow": true
+  },
+  "76": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true
+  },
+  "77": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true
+  },
+  "78": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true
+  },
+  "79": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "80": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxs": true,
+    "mega": true
+  },
+  "81": {
+    "captured": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "82": {
+    "captured": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "83": {
+    "captured": true,
+    "lucky": true,
+    "xxs": true
+  },
+  "84": {
+    "captured": true
+  },
+  "85": {
+    "captured": true
+  },
+  "86": {
+    "captured": true,
+    "xxs": true
+  },
+  "87": {
+    "captured": true
+  },
+  "88": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "89": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "90": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "shadow": true
+  },
+  "91": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "shadow": true
+  },
+  "92": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true,
+    "hundred": true
+  },
+  "93": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true,
+    "hundred": true
+  },
+  "94": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "mega": true,
+    "gigantamax": true,
+    "shadow": true,
+    "purified": true,
+    "hundred": true
+  },
+  "95": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "96": {
+    "captured": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "97": {
+    "captured": true,
+    "xxs": true
+  },
+  "98": {
+    "captured": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "99": {
+    "captured": true,
+    "xxl": true,
+    "xxs": true,
+    "gigantamax": true
+  },
+  "100": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxs": true,
+    "shadow": true
+  },
+  "101": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "102": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true
+  },
+  "103": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true
+  },
+  "104": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "shadow": true
+  },
+  "105": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "106": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "107": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "108": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true
+  },
+  "109": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "110": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "111": {
+    "captured": true,
+    "hundred": true,
+    "shadow": true
+  },
+  "112": {
+    "captured": true,
+    "hundred": true,
+    "shadow": true
+  },
+  "113": {
+    "captured": true,
+    "lucky": true
+  },
+  "114": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true
+  },
+  "115": {
+    "captured": true,
+    "lucky": true,
+    "mega": true
+  },
+  "116": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "117": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true
+  },
+  "118": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true
+  },
+  "119": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true
+  },
+  "120": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "121": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "purified": true,
+    "shadow": true
+  },
+  "122": {
+    "captured": true
+  },
+  "123": {
+    "captured": true,
+    "lucky": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "124": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true
+  },
+  "125": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "126": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "shadow": true,
+    "purified": true
+  },
+  "127": {
+    "captured": true,
+    "mega": true,
+    "shadow": true
+  },
+  "128": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true
+  },
+  "129": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "130": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "mega": true,
+    "shadow": true,
+    "purified": true
+  },
+  "131": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxs": true,
+    "gigantamax": true,
+    "shadow": true,
+    "purified": true
+  },
+  "132": {
+    "captured": true,
+    "shiny": true
+  },
+  "133": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "134": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxs": true
+  },
+  "135": {
+    "xxl": true,
+    "hundred": true,
+    "shiny": true,
+    "captured": true
+  },
+  "136": {
+    "captured": true,
+    "shiny": true
+  },
+  "137": {
+    "captured": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "138": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true
+  },
+  "139": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "140": {
+    "captured": true,
+    "xxs": true
+  },
+  "141": {
+    "xxs": true,
+    "captured": true
+  },
+  "142": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "mega": true,
+    "shadow": true,
+    "purified": true
+  },
+  "143": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "gigantamax": true,
+    "shadow": true,
+    "purified": true
+  },
+  "144": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true
+  },
+  "145": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxs": true
+  },
+  "146": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true
+  },
+  "147": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "148": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "149": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "150": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "megaX": true
+  },
+  "151": {
+    "captured": true,
+    "hundred": true
+  },
+  "152": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "153": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "purified": true,
+    "lucky": true
+  },
+  "154": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "purified": true,
+    "lucky": true
+  },
+  "155": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "156": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "purified": true,
+    "hundred": true,
+    "xxs": true,
+    "lucky": true
+  },
+  "157": {
+    "shiny": true,
+    "captured": true,
+    "shadow": true,
+    "purified": true,
+    "hundred": true,
+    "xxs": true,
+    "lucky": true
+  },
+  "158": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true
+  },
+  "159": {
+    "captured": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true,
+    "lucky": true,
+    "hundred": true
+  },
+  "160": {
+    "captured": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "lucky": true,
+    "hundred": true
+  },
+  "161": {
+    "captured": true
+  },
+  "162": {
+    "captured": true,
+    "lucky": true
+  },
+  "163": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "hundred": true,
+    "xxl": true,
+    "xxs": true,
+    "zero": true
+  },
+  "164": {
+    "captured": true,
+    "shiny": true,
+    "xxs": true,
+    "lucky": true,
+    "xxl": true,
+    "hundred": true
+  },
+  "165": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true
+  },
+  "166": {
+    "captured": true,
+    "shiny": true
+  },
+  "167": {
+    "captured": true
+  },
+  "168": {
+    "captured": true,
+    "xxs": true
+  },
+  "169": {
+    "captured": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "170": {
+    "captured": true,
+    "xxl": true
+  },
+  "171": {
+    "captured": true,
+    "xxl": true
+  },
+  "172": {
+    "captured": true
+  },
+  "173": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true
+  },
+  "174": {
+    "captured": true,
+    "shiny": true
+  },
+  "175": {
+    "captured": true,
+    "hundred": true
+  },
+  "176": {
+    "captured": true,
+    "hundred": true
+  },
+  "177": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "178": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxl": true,
+    "purified": true
+  },
+  "179": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true
+  },
+  "180": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "shadow": true,
+    "xxs": true
+  },
+  "181": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "shadow": true,
+    "purified": true,
+    "xxs": true
+  },
+  "182": {
+    "captured": true
+  },
+  "183": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "184": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "lucky": true,
+    "xxs": true
+  },
+  "185": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxs": true
+  },
+  "186": {
+    "captured": true,
+    "shiny": true
+  },
+  "187": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "188": {
+    "captured": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true,
+    "lucky": true,
+    "shiny": true
+  },
+  "189": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "190": {
+    "captured": true,
+    "hundred": true,
+    "shadow": true
+  },
+  "191": {
+    "captured": true
+  },
+  "192": {
+    "captured": true,
+    "xxs": true
+  },
+  "193": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true
+  },
+  "194": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "195": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "196": {
+    "captured": true
+  },
+  "197": {
+    "captured": true,
+    "shiny": true
+  },
+  "198": {
+    "captured": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true
+  },
+  "199": {
+    "captured": true,
+    "shiny": true
+  },
+  "200": {
+    "captured": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "201": {
+    "captured": true,
+    "hundred": true,
+    "xxl": true,
+    "xxs": true,
+    "shiny": true
+  },
+  "202": {
+    "captured": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "203": {
+    "captured": true,
+    "shadow": true,
+    "purified": true
+  },
+  "204": {
+    "shiny": true,
+    "captured": true,
+    "shadow": true,
+    "purified": true
+  },
+  "205": {
+    "shiny": true,
+    "captured": true,
+    "shadow": true,
+    "purified": true
+  },
+  "206": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true,
+    "xxs": true
+  },
+  "207": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "208": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "mega": true
+  },
+  "209": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "210": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "211": {
+    "captured": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "212": {
+    "captured": true,
+    "lucky": true,
+    "mega": true,
+    "shadow": true,
+    "purified": true
+  },
+  "213": {
+    "captured": true,
+    "shadow": true,
+    "purified": true
+  },
+  "214": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxs": true
+  },
+  "215": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "purified": true
+  },
+  "216": {
+    "captured": true,
+    "hundred": true,
+    "shadow": true,
+    "purified": true
+  },
+  "217": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true,
+    "purified": true
+  },
+  "218": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true
+  },
+  "219": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true
+  },
+  "220": {
+    "captured": true,
+    "hundred": true,
+    "shadow": true,
+    "purified": true
+  },
+  "221": {
+    "captured": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true,
+    "hundred": true
+  },
+  "222": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxs": true
+  },
+  "223": {
+    "captured": true
+  },
+  "224": {
+    "captured": true
+  },
+  "225": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true
+  },
+  "226": {
+    "captured": true,
+    "shiny": true
+  },
+  "227": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true
+  },
+  "228": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "purified": true
+  },
+  "229": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "purified": true,
+    "mega": true
+  },
+  "230": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "purified": true
+  },
+  "231": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "shadow": true,
+    "purified": true
+  },
+  "232": {
+    "captured": true,
+    "shiny": true
+  },
+  "233": {
+    "captured": true,
+    "shadow": true
+  },
+  "234": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "235": {
+    "captured": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "236": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true
+  },
+  "237": {
+    "captured": true,
+    "shiny": true,
+    "xxs": true
+  },
+  "238": {
+    "captured": true,
+    "xxs": true
+  },
+  "239": {
+    "captured": true
+  },
+  "240": {
+    "captured": true
+  },
+  "241": {
+    "captured": true
+  },
+  "242": {
+    "captured": true,
+    "lucky": true
+  },
+  "243": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "244": {
+    "captured": true,
+    "shiny": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "245": {
+    "captured": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "246": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "247": {
+    "captured": true,
+    "hundred": true,
+    "shadow": true,
+    "purified": true
+  },
+  "248": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxs": true,
+    "mega": true,
+    "shadow": true,
+    "purified": true
+  },
+  "249": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "250": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "251": {
+    "captured": true,
+    "shiny": true
+  },
+  "252": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "253": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true
+  },
+  "254": {
+    "captured": true,
+    "mega": true,
+    "xxs": true,
+    "shiny": true,
+    "xxl": true
+  },
+  "255": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "lucky": true
+  },
+  "256": {
+    "captured": true,
+    "shiny": true,
+    "xxs": true,
+    "shadow": true,
+    "lucky": true
+  },
+  "257": {
+    "captured": true,
+    "shiny": true,
+    "mega": true,
+    "shadow": true,
+    "purified": true,
+    "lucky": true
+  },
+  "258": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "purified": true
+  },
+  "259": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true
+  },
+  "260": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "purified": true
+  },
+  "261": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "262": {
+    "captured": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "263": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "264": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "265": {
+    "captured": true,
+    "shiny": true,
+    "xxs": true
+  },
+  "266": {
+    "captured": true
+  },
+  "267": {
+    "captured": true
+  },
+  "268": {
+    "captured": true
+  },
+  "269": {
+    "captured": true
+  },
+  "270": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true
+  },
+  "271": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true
+  },
+  "272": {
+    "captured": true,
+    "lucky": true,
+    "hundred": true,
+    "shiny": true
+  },
+  "273": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "274": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "shadow": true,
+    "purified": true,
+    "lucky": true
+  },
+  "275": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "purified": true,
+    "shadow": true,
+    "lucky": true
+  },
+  "276": {
+    "captured": true,
+    "lucky": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "277": {
+    "captured": true,
+    "shadow": true,
+    "purified": true
+  },
+  "278": {
+    "captured": true,
+    "hundred": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "279": {
+    "captured": true,
+    "xxl": true,
+    "hundred": true,
+    "xxs": true
+  },
+  "280": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "281": {
+    "captured": true,
+    "shiny": true,
+    "purified": true,
+    "shadow": true
+  },
+  "282": {
+    "captured": true,
+    "shiny": true,
+    "mega": true,
+    "shadow": true,
+    "purified": true
+  },
+  "283": {
+    "captured": true,
+    "xxs": true,
+    "xxl": true
+  },
+  "284": {
+    "captured": true,
+    "xxs": true
+  },
+  "285": {
+    "captured": true,
+    "xxs": true
+  },
+  "286": {
+    "captured": true,
+    "xxs": true
+  },
+  "287": {
+    "captured": true,
+    "shadow": true
+  },
+  "288": {
+    "captured": true
+  },
+  "289": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true
+  },
+  "290": {
+    "captured": true
+  },
+  "291": {
+    "captured": true
+  },
+  "292": {
+    "captured": true
+  },
+  "293": {
+    "captured": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "294": {
+    "captured": true,
+    "shadow": true,
+    "xxl": true
+  },
+  "295": {
+    "captured": true,
+    "xxl": true
+  },
+  "296": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "297": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "purified": true,
+    "hundred": true,
+    "xxs": true
+  },
+  "298": {
+    "captured": true,
+    "lucky": true
+  },
+  "299": {
+    "captured": true,
+    "xxl": true
+  },
+  "300": {
+    "captured": true,
+    "shiny": true
+  },
+  "301": {
+    "captured": true,
+    "shiny": true
+  },
+  "302": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true,
+    "mega": true,
+    "shadow": true
+  },
+  "303": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "shadow": true,
+    "purified": true,
+    "mega": true
+  },
+  "304": {
+    "captured": true,
+    "shadow": true,
+    "purified": true
+  },
+  "305": {
+    "captured": true,
+    "shadow": true,
+    "purified": true
+  },
+  "306": {
+    "captured": true,
+    "purified": true
+  },
+  "307": {
+    "captured": true
+  },
+  "308": {
+    "captured": true
+  },
+  "309": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "310": {
+    "captured": true,
+    "shiny": true,
+    "mega": true
+  },
+  "311": {
+    "captured": true,
+    "xxs": true
+  },
+  "312": {
+    "captured": true,
+    "xxs": true
+  },
+  "313": {
+    "captured": true
+  },
+  "314": {
+    "captured": true,
+    "hundred": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "315": {
+    "captured": true,
+    "hundred": true,
+    "xxl": true
+  },
+  "316": {
+    "captured": true,
+    "lucky": true,
+    "xxl": true,
+    "xxs": true
+  },
+  "317": {
+    "captured": true
+  },
+  "318": {
+    "captured": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "319": {
+    "captured": true,
+    "purified": true,
+    "shadow": true,
+    "mega": true,
+    "xxl": true
+  },
+  "320": {
+    "captured": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "321": {
+    "captured": true,
+    "lucky": true
+  },
+  "322": {
+    "captured": true,
+    "shadow": true,
+    "purified": true
+  },
+  "323": {
+    "captured": true,
+    "purified": true,
+    "shadow": true,
+    "mega": true,
+    "shiny": true
+  },
+  "324": {
+    "captured": true,
+    "xxl": true
+  },
+  "325": {
+    "captured": true,
+    "shadow": true
+  },
+  "326": {
+    "captured": true
+  },
+  "327": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true
+  },
+  "328": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "purified": true
+  },
+  "329": {
+    "captured": true,
+    "purified": true,
+    "shadow": true,
+    "shiny": true
+  },
+  "330": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "purified": true
+  },
+  "331": {
+    "captured": true,
+    "hundred": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "332": {
+    "captured": true,
+    "hundred": true,
+    "shadow": true
+  },
+  "333": {
+    "captured": true,
+    "shiny": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "334": {
+    "captured": true,
+    "shiny": true
+  },
+  "335": {
+    "captured": true,
+    "lucky": true
+  },
+  "336": {
+    "captured": true,
+    "xxs": true
+  },
+  "337": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "xxl": true
+  },
+  "338": {
+    "captured": true,
+    "lucky": true,
+    "hundred": true,
+    "shiny": true
+  },
+  "339": {
+    "captured": true,
+    "lucky": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "340": {
+    "captured": true,
+    "shadow": true,
+    "purified": true,
+    "lucky": true,
+    "xxs": true
+  },
+  "341": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true
+  },
+  "342": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true
+  },
+  "343": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "xxs": true,
+    "shadow": true
+  },
+  "344": {
+    "captured": true,
+    "shadow": true,
+    "purified": true,
+    "shiny": true,
+    "hundred": true,
+    "xxs": true
+  },
+  "345": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "purified": true
+  },
+  "346": {
+    "captured": true,
+    "shiny": true
+  },
+  "347": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true,
+    "xxl": true
+  },
+  "348": {
+    "captured": true,
+    "shadow": true
+  },
+  "349": {
+    "captured": true
+  },
+  "350": {
+    "captured": true
+  },
+  "351": {
+    "captured": true
+  },
+  "352": {
+    "captured": true
+  },
+  "353": {
+    "captured": true,
+    "lucky": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "354": {
+    "captured": true,
+    "mega": true,
+    "purified": true,
+    "lucky": true
+  },
+  "355": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "356": {
+    "captured": true,
+    "shadow": true,
+    "purified": true,
+    "shiny": true,
+    "xxl": true
+  },
+  "357": {
+    "captured": true,
+    "shiny": true
+  },
+  "358": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true
+  },
+  "359": {
+    "captured": true,
+    "shiny": true,
+    "hundred": true,
+    "mega": true
+  },
+  "360": {
+    "captured": true,
+    "xxs": true
+  },
+  "361": {
+    "captured": true
+  },
+  "362": {
+    "captured": true,
+    "mega": true
+  },
+  "363": {
+    "captured": true,
+    "hundred": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "364": {
+    "captured": true,
+    "hundred": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "365": {
+    "captured": true,
+    "hundred": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "366": {
+    "captured": true,
+    "shiny": true
+  },
+  "367": {
+    "captured": true
+  },
+  "368": {
+    "captured": true,
+    "shiny": true
+  },
+  "369": {
+    "captured": true
+  },
+  "370": {
+    "captured": true,
+    "xxl": true
+  },
+  "371": {
+    "captured": true,
+    "shiny": true,
+    "xxs": true,
+    "shadow": true,
+    "purified": true
+  },
+  "372": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "purified": true
+  },
+  "373": {
+    "captured": true,
+    "shiny": true,
+    "mega": true,
+    "shadow": true,
+    "purified": true
+  },
+  "374": {
+    "captured": true,
+    "lucky": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "375": {
+    "captured": true,
+    "xxl": true,
+    "shadow": true,
+    "purified": true
+  },
+  "376": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "mega": true,
+    "shadow": true
+  },
+  "377": {
+    "captured": true,
+    "shadow": true
+  },
+  "378": {
+    "captured": true,
+    "shadow": true
+  },
+  "379": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true
+  },
+  "380": {
+    "captured": true,
+    "mega": true,
+    "shadow": true
+  },
+  "381": {
+    "captured": true,
+    "shiny": true,
+    "shadow": true,
+    "purified": true
+  },
+  "382": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "purified": true
+  },
+  "383": {
+    "captured": true,
+    "shiny": true,
+    "lucky": true,
+    "shadow": true,
+    "purified": true
+  },
+  "384": {
+    "captured": true,
+    "shiny": true,
+    "xxl": true,
+    "mega": true
+  },
+  "385": {
+    "captured": true
+  },
+  "386": {
+    "captured": true,
+    "shiny": true
+  }
+}
