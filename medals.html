@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Medals — Pokémon GO Trainer Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:            #090b12;
+    --bg-soft:       #0d1018;
+    --surface:       #12151f;
+    --surface-alt:   #171b28;
+    --surface-hover: #1c2130;
+    --border:        #232838;
+    --border-soft:   #1a1e2b;
+    --text:          #e7eaf3;
+    --text-muted:    #8b93a7;
+    --text-faint:    #565d72;
+    --accent:        #4f8ef7;
+    --accent-soft:   rgba(79,142,247,.12);
+    --success:       #22c55e;
+    --success-soft:  rgba(34,197,94,.12);
+    --danger:        #f45866;
+    --danger-soft:   rgba(244,88,102,.12);
+    --gold:          #fbbf24;
+    --gold-soft:     rgba(251,191,36,.12);
+    --purple:        #a78bfa;
+    --purple-soft:   rgba(167,139,250,.12);
+    --cyan:          #22d3ee;
+  }
+  *{box-sizing:border-box;}
+  html,body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif;}
+  .font-display{font-family:'Orbitron',sans-serif;}
+  .font-mono{font-family:'JetBrains Mono',monospace;}
+  ::-webkit-scrollbar{height:10px; width:10px;}
+  ::-webkit-scrollbar-track{background:var(--bg-soft);}
+  ::-webkit-scrollbar-thumb{background:var(--border); border-radius:6px;}
+  ::-webkit-scrollbar-thumb:hover{background:#2c3244;}
+
+  .app-shell{background:
+    radial-gradient(1200px 500px at 15% -10%, rgba(251,191,36,.08), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(167,139,250,.08), transparent 55%),
+    var(--bg)
+  ;}
+
+  .card{background:var(--surface); border:1px solid var(--border); border-radius:12px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:6px; padding:7px 12px;
+    background:var(--surface-alt); border:1px solid var(--border); border-radius:8px;
+    font-size:.8rem; font-weight:600; color:var(--text-muted); cursor:pointer;
+    transition:all .12s ease; user-select:none; text-decoration:none;
+  }
+  .btn:hover{border-color:var(--accent); color:var(--accent);}
+
+  .pokeball-icon{width:22px; height:22px; border-radius:50%; position:relative; background:linear-gradient(#f45866 0 49%, #0a0d14 49% 51%, #eef1f8 51% 100%); border:2px solid #0a0d14; flex-shrink:0;}
+  .pokeball-icon::after{content:""; position:absolute; top:50%; left:50%; width:8px; height:8px; background:#eef1f8; border:2px solid #0a0d14; border-radius:50%; transform:translate(-50%,-50%);}
+  .pokeball-icon.spin{animation:spin 2.4s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* ---------- Medals ---------- */
+  .medal-card{
+    background:var(--surface-alt); border:1px solid var(--border-soft);
+    border-radius:10px; padding:12px; transition:border-color .15s ease;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .medal-card:hover{border-color:var(--border);}
+  .medal-tier{
+    font-size:.62rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+    padding:1px 7px; border-radius:999px; white-space:nowrap;
+  }
+  .medal-bar{height:5px; border-radius:999px; background:var(--border-soft); overflow:hidden;}
+  .medal-bar>div{height:100%; border-radius:999px; transition:width .25s ease;}
+  .medal-btn{
+    width:22px; height:22px; border-radius:6px; border:1px solid var(--border);
+    background:var(--surface); color:var(--text-muted); font-size:.8rem; line-height:1;
+    cursor:pointer; transition:all .12s ease; flex-shrink:0;
+  }
+  .medal-btn:hover{border-color:var(--accent); color:var(--accent);}
+  .medal-count{
+    width:70px; text-align:center; background:var(--surface); border:1px solid var(--border);
+    border-radius:6px; padding:2px 4px; font-size:.78rem; color:var(--text);
+    font-family:'JetBrains Mono',monospace;
+  }
+  .medal-count:focus{outline:none; border-color:var(--accent);}
+  .medal-count::-webkit-outer-spin-button,.medal-count::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
+  .medal-count{-moz-appearance:textfield; appearance:textfield;}
+  .medal-meta{font-size:.68rem; line-height:1.45;}
+  .delta-up{color:var(--success);}
+  .delta-down{color:var(--danger);}
+  .delta-flat{color:var(--text-faint);}
+</style>
+</head>
+<body class="app-shell min-h-screen">
+
+<div class="max-w-[1500px] mx-auto px-4 md:px-6 py-6">
+
+  <!-- ============ HEADER ============ -->
+  <header class="flex flex-col lg:flex-row lg:items-center justify-between gap-5 mb-6">
+    <div class="flex items-center gap-4">
+      <div class="pokeball-icon spin" style="width:40px;height:40px;"></div>
+      <div>
+        <h1 class="font-display text-xl md:text-2xl tracking-wide text-white">MEDAL <span style="color:var(--gold);">TRACKER</span></h1>
+        <p class="text-xs text-[var(--text-muted)] mt-0.5">Trainer Dashboard Module &middot; Type &amp; general medals &middot; progress, history and ETA to Platinum</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <a href="index.html" class="btn" title="Back to the Pokédex tracker">← Pokédex</a>
+      <button id="btnMedalExport" class="btn" title="Export medal progress to a JSON file">⭳ Export</button>
+      <button id="btnMedalImport" class="btn" title="Import a previously exported medal file">⭱ Import</button>
+      <input type="file" id="medalImportFile" accept="application/json" class="hidden" />
+    </div>
+  </header>
+
+  <!-- ============ OVERVIEW ============ -->
+  <section id="medalOverview" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6"></section>
+
+  <!-- ============ GENERAL MEDALS ============ -->
+  <section class="card p-4">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-3">
+      <h2 class="font-display text-sm tracking-wide text-white">GENERAL <span style="color:var(--purple);">MEDALS</span></h2>
+      <span class="text-[10px] uppercase tracking-wider text-[var(--text-faint)]">Update your counts whenever you like &middot; every change is logged with its date</span>
+    </div>
+    <div id="generalMedalsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3"></div>
+    <div id="generalDoneWrap" class="mt-2"></div>
+  </section>
+
+  <!-- ============ TYPE MEDALS ============ -->
+  <section class="card p-4 mb-6">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-3">
+      <h2 class="font-display text-sm tracking-wide text-white">TYPE <span style="color:var(--gold);">MEDALS</span></h2>
+      <span class="text-[10px] uppercase tracking-wider text-[var(--text-faint)]">Bronze 10 &middot; Silver 50 &middot; Gold 200 &middot; Platinum 2500</span>
+    </div>
+    <div id="typeMedalsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3"></div>
+    <div id="typeDoneWrap" class="mt-2"></div>
+  </section>
+
+  <footer class="text-center text-[11px] text-[var(--text-faint)] mt-8 pb-4">
+    Medal Tracker Module &middot; Built for the Pokémon GO Trainer Dashboard &middot; Data stored locally in your browser only
+  </footer>
+
+</div>
+
+<script>
+/* =========================================================================
+   MEDAL TRACKER — CORE MODULE
+   Tracks medal progress with dated measurements, shows the delta against
+   the previous update and projects an ETA to Platinum from recent rates.
+   ========================================================================= */
+
+/* ---------- 1. STATIC DATA ------------------------------------------------ */
+const TYPE_INFO = {
+  Normal:   "#9aa0ab", Fire:     "#f45866", Water:    "#4f8ef7",
+  Electric: "#fbbf24", Grass:    "#4ade80", Ice:      "#67e8f9",
+  Fighting: "#dc2626", Poison:   "#a855f7", Ground:   "#d97706",
+  Flying:   "#93c5fd", Psychic:  "#f472b6", Bug:      "#84cc16",
+  Rock:     "#a8895a", Ghost:    "#7c6aed", Dragon:   "#6366f1",
+  Dark:     "#57534e", Steel:    "#94a3b8", Fairy:    "#f0abfc",
+};
+
+/* tiers: [bronze, silver, gold, platinum] thresholds.
+   Type medals all share 10/50/200/2500. */
+const TYPE_MEDALS = [
+  { key: "Normal",   name: "Schoolkid",       desc: "Catch Normal-type Pokémon" },
+  { key: "Fire",     name: "Kindler",         desc: "Catch Fire-type Pokémon" },
+  { key: "Water",    name: "Swimmer",         desc: "Catch Water-type Pokémon" },
+  { key: "Electric", name: "Pikachu Fan",     desc: "Catch Electric-type Pokémon" },
+  { key: "Grass",    name: "Gardener",        desc: "Catch Grass-type Pokémon" },
+  { key: "Ice",      name: "Skier",           desc: "Catch Ice-type Pokémon" },
+  { key: "Fighting", name: "Black Belt",      desc: "Catch Fighting-type Pokémon" },
+  { key: "Poison",   name: "Punk Girl",       desc: "Catch Poison-type Pokémon" },
+  { key: "Ground",   name: "Ruin Maniac",     desc: "Catch Ground-type Pokémon" },
+  { key: "Flying",   name: "Bird Keeper",     desc: "Catch Flying-type Pokémon" },
+  { key: "Psychic",  name: "Psychic",         desc: "Catch Psychic-type Pokémon" },
+  { key: "Bug",      name: "Bug Catcher",     desc: "Catch Bug-type Pokémon" },
+  { key: "Rock",     name: "Hiker",           desc: "Catch Rock-type Pokémon" },
+  { key: "Ghost",    name: "Hex Maniac",      desc: "Catch Ghost-type Pokémon" },
+  { key: "Dragon",   name: "Dragon Tamer",    desc: "Catch Dragon-type Pokémon" },
+  { key: "Dark",     name: "Delinquent",      desc: "Catch Dark-type Pokémon" },
+  { key: "Steel",    name: "Rail Staff",      desc: "Catch Steel-type Pokémon" },
+  { key: "Fairy",    name: "Fairy Tale Girl", desc: "Catch Fairy-type Pokémon" },
+].map(m => ({ ...m, group: "type", color: TYPE_INFO[m.key], tiers: [10, 50, 200, 2500] }));
+
+/* General medals — thresholds follow the in-game values; tweak the
+   `tiers` arrays here if Niantic adjusts them. */
+const GENERAL_MEDALS = [
+  /* ---- Catch & capture ---- */
+  { key: "Collector",       name: "Collector",        desc: "Catch Pokémon",                    tiers: [30, 500, 2000, 50000] },
+  { key: "Pikachu",         name: "Pikachu",          desc: "Catch Pikachu",                    tiers: [3, 50, 300, 1000] },
+  { key: "Unown",           name: "Unown",            desc: "Catch Unown",                      tiers: [3, 10, 26, 28] },
+  { key: "Fisherman",       name: "Fisherman",        desc: "Catch big Magikarp",               tiers: [3, 50, 300, 1000] },
+  { key: "Youngster",       name: "Youngster",        desc: "Catch tiny Rattata",               tiers: [3, 50, 300, 1000] },
+  { key: "Picnicker",       name: "Picnicker",        desc: "Catch lured Pokémon",              tiers: [5, 25, 500, 2500] },
+  { key: "TinyPokemon",     name: "Tiny Pokémon",     desc: "Catch XXS Pokémon",                tiers: [5, 25, 100, 500] },
+  { key: "JumboPokemon",    name: "Jumbo Pokémon",    desc: "Catch XXL Pokémon",                tiers: [5, 25, 100, 500] },
+  { key: "Jogger",          name: "Jogger",           desc: "Walk distance (km)",               tiers: [10, 100, 1000, 10000] },
+  /* ---- Evolution & buddies ---- */
+  { key: "Scientist",       name: "Scientist",        desc: "Evolve Pokémon",                   tiers: [3, 20, 50, 200] },
+  { key: "MegaEvolution",   name: "Mega Evolution",   desc: "Mega evolve Pokémon",              tiers: [1, 24, 36, 46] },
+  { key: "Successor",       name: "Successor",        desc: "Win Mega Raids",                   tiers: [5, 50, 500, 1000] },
+  { key: "Idol",            name: "Idol",             desc: "Best Buddies",                     tiers: [1, 2, 3, 20] },
+  /* ---- Eggs & trading ---- */
+  { key: "Breeder",         name: "Breeder",          desc: "Hatch Eggs",                       tiers: [10, 100, 1000, 2500] },
+  { key: "Gentleman",       name: "Gentleman",        desc: "Trade Pokémon",                    tiers: [10, 100, 1000, 2500] },
+  { key: "Pilot",           name: "Pilot",            desc: "Earn Candy through trades",        tiers: [100, 1000, 10000, 100000] },
+  /* ---- PokéStops & Routes ---- */
+  { key: "Backpacker",      name: "Backpacker",       desc: "Visit PokéStops",                  tiers: [10, 100, 1000, 2000] },
+  { key: "Sightseer",       name: "Sightseer",        desc: "Spin unique PokéStops",            tiers: [10, 100, 1000, 5000] },
+  { key: "ExpertNavigator", name: "Expert Navigator", desc: "Complete Routes",                  tiers: [10, 50, 200, 600] },
+  /* ---- Gyms ---- */
+  { key: "BattleGirl",      name: "Battle Girl",      desc: "Win Gym battles",                  tiers: [10, 100, 1000, 4000] },
+  { key: "AceTrainer",      name: "Ace Trainer",      desc: "Train against Team Leaders",       tiers: [10, 100, 1000, 2000] },
+  { key: "GymLeader",       name: "Gym Leader",       desc: "Hours defending Gyms",             tiers: [10, 100, 1000, 15000] },
+  { key: "BerryMaster",     name: "Berry Master",     desc: "Feed Berries at Gyms",             tiers: [10, 100, 1000, 15000] },
+  /* ---- Raids ---- */
+  { key: "Champion",        name: "Champion",         desc: "Win Raid Battles",                 tiers: [10, 100, 1000, 2000] },
+  { key: "BattleLegend",    name: "Battle Legend",    desc: "Win Legendary Raids",              tiers: [10, 100, 1000, 2000] },
+  { key: "RaidExpert",      name: "Raid Expert",      desc: "Unique species won in raids",      tiers: [1, 50, 200, 500] },
+  { key: "RisingStar",      name: "Rising Star",      desc: "Defeat different species in raids", tiers: [2, 10, 50, 150] },
+  { key: "RisingStarDuo",   name: "Rising Star Duo",  desc: "Win raids with a friend",          tiers: [10, 100, 1000, 2000] },
+  /* ---- Team GO Rocket ---- */
+  { key: "Hero",            name: "Hero",             desc: "Defeat Team GO Rocket Grunts",     tiers: [10, 100, 1000, 2000] },
+  { key: "Purifier",        name: "Purifier",         desc: "Purify Shadow Pokémon",            tiers: [5, 50, 500, 1000] },
+  { key: "UltraHero",       name: "Ultra Hero",       desc: "Defeat Giovanni",                  tiers: [1, 5, 20, 50] },
+  /* ---- GO Battle League ---- */
+  { key: "GreatLeague",     name: "Great League",     desc: "Win Trainer Battles in the Great League", tiers: [5, 50, 200, 1000] },
+  { key: "UltraLeague",     name: "Ultra League",     desc: "Win Trainer Battles in the Ultra League", tiers: [5, 50, 200, 1000] },
+  { key: "MasterLeague",    name: "Master League",    desc: "Win Trainer Battles in the Master League", tiers: [5, 50, 200, 1000] },
+  /* ---- Special / events ---- */
+  { key: "PokemonRanger",   name: "Pokémon Ranger",   desc: "Complete Field Research tasks",    tiers: [10, 100, 1000, 2500] },
+  { key: "Triathlete",      name: "Triathlete",       desc: "Complete weekly adventure goals",  tiers: [10, 50, 100, 500] },
+  { key: "LifeParty",       name: "Life of the Party", desc: "Complete Party Challenges",       tiers: [10, 50, 100, 2000] },
+  { key: "CommunityMember", name: "Community Member", desc: "Participate in Community Days",    tiers: [1, 20, 50, 100] },
+  { key: "ShowcaseStar",    name: "Showcase Star",    desc: "Win Showcase Challenges",          tiers: [1, 10, 50, 100] },
+  { key: "Cameraman",       name: "Cameraman",        desc: "Have surprise encounters in GO Snapshot", tiers: [10, 50, 200, 400] },
+  /* ---- Region registration ---- */
+  { key: "Kanto",           name: "Kanto",            desc: "Register Kanto-region Pokémon",    tiers: [5, 50, 100, 151] },
+  { key: "Johto",           name: "Johto",            desc: "Register Johto-region Pokémon",    tiers: [5, 30, 70, 100] },
+  { key: "Hoenn",           name: "Hoenn",            desc: "Register Hoenn-region Pokémon",    tiers: [5, 40, 90, 135] },
+  { key: "Sinnoh",          name: "Sinnoh",           desc: "Register Sinnoh-region Pokémon",   tiers: [5, 30, 80, 107] },
+  { key: "Unova",           name: "Unova",            desc: "Register Unova-region Pokémon",    tiers: [5, 50, 100, 156] },
+  { key: "Kalos",           name: "Kalos",            desc: "Register Kalos-region Pokémon",    tiers: [5, 25, 50, 72] },
+  { key: "Alola",           name: "Alola",            desc: "Register Alola-region Pokémon",    tiers: [5, 25, 50, 86] },
+  { key: "Galar",           name: "Galar",            desc: "Register Galar-region Pokémon",    tiers: [5, 25, 50, 89] },
+  { key: "Hisui",           name: "Hisui",            desc: "Register Hisui-region Pokémon",    tiers: [1, 3, 5, 7] },
+  { key: "Paldea",          name: "Paldea",           desc: "Register Paldea-region Pokémon",   tiers: [5, 30, 80, 103] },
+].map(m => ({ ...m, group: "general", color: "#a78bfa" }));
+
+const ALL_MEDALS = [...TYPE_MEDALS, ...GENERAL_MEDALS];
+
+const TIER_NAMES  = ["Bronze", "Silver", "Gold", "Platinum"];
+const TIER_COLORS = ["#d97706", "#94a3b8", "#fbbf24", "#e5e7eb"];
+
+/* ---------- 2. PERSISTENCE ------------------------------------------------- */
+const MEDAL_STORAGE_KEY   = "pokedexTracker.medals.v1";
+const MEDAL_HISTORY_KEY   = "pokedexTracker.medals.history.v1";
+const MAX_HISTORY_ENTRIES = 30;
+
+const MedalStore = {
+  counts: {},   // key -> number
+  history: {},  // key -> [{ d: "YYYY-MM-DD", c: number }, ...] oldest first
+  load() {
+    try {
+      this.counts = JSON.parse(localStorage.getItem(MEDAL_STORAGE_KEY)) || {};
+    } catch (e) { this.counts = {}; }
+    try {
+      this.history = JSON.parse(localStorage.getItem(MEDAL_HISTORY_KEY)) || {};
+    } catch (e) { this.history = {}; }
+    /* Seed one history entry for medals that already have a count but no
+       logged measurement yet (e.g. counts saved before this page existed). */
+    const today = new Date().toISOString().slice(0, 10);
+    ALL_MEDALS.forEach(m => {
+      const c = this.get(m.key);
+      if (c > 0 && (!this.history[m.key] || this.history[m.key].length === 0)) {
+        this.history[m.key] = [{ d: today, c }];
+      }
+    });
+    this.save();
+  },
+  save() {
+    try {
+      localStorage.setItem(MEDAL_STORAGE_KEY, JSON.stringify(this.counts));
+      localStorage.setItem(MEDAL_HISTORY_KEY, JSON.stringify(this.history));
+    } catch (e) { console.warn("Could not save medals.", e); }
+  },
+  get(key) { return Math.max(0, Number(this.counts[key]) || 0); },
+  set(key, value) {
+    const v = Math.max(0, Math.round(Number(value) || 0));
+    if (v === this.get(key)) return;
+    this.counts[key] = v;
+    /* Log the measurement; replace today's entry instead of duplicating it. */
+    const today = new Date().toISOString().slice(0, 10);
+    const h = this.history[key] || (this.history[key] = []);
+    if (h.length && h[h.length - 1].d === today) h[h.length - 1].c = v;
+    else h.push({ d: today, c: v });
+    if (h.length > MAX_HISTORY_ENTRIES) h.splice(0, h.length - MAX_HISTORY_ENTRIES);
+    this.save();
+  },
+  replaceAll(payload) {
+    this.counts  = (payload && payload.counts)  || {};
+    this.history = (payload && payload.history) || {};
+    this.save();
+  },
+};
+MedalStore.load();
+
+/* ---------- 3. TIERS, DELTA AND PROJECTION --------------------------------- */
+function tierIndex(medal, count) {
+  let idx = -1;
+  medal.tiers.forEach((min, i) => { if (count >= min) idx = i; });
+  return idx; // -1 = no medal yet
+}
+function nextTier(medal, count) {
+  const idx = tierIndex(medal, count);
+  return idx < medal.tiers.length - 1
+    ? { name: TIER_NAMES[idx + 1], min: medal.tiers[idx + 1], color: TIER_COLORS[idx + 1] }
+    : null;
+}
+
+/* Delta between the current count and the measurement logged BEFORE the
+   most recent one. Returns null when there is nothing to compare yet. */
+function lastDelta(key) {
+  const h = MedalStore.history[key] || [];
+  if (h.length < 2) return null;
+  return { diff: h[h.length - 1].c - h[h.length - 2].c, from: h[h.length - 2] };
+}
+
+/* ETA to Platinum: linear rate from up to the last 5 measurements,
+   oldest→newest. Needs at least 2 measurements on different days and a
+   positive rate. Returns { days, date, perDay } or null. */
+function projectPlatinum(medal) {
+  const target = medal.tiers[3];
+  const current = MedalStore.get(medal.key);
+  if (current >= target) return { days: 0 };
+  const h = (MedalStore.history[medal.key] || []).slice(-5);
+  if (h.length < 2) return null;
+  const first = h[0], last = h[h.length - 1];
+  const days = (new Date(last.d) - new Date(first.d)) / 86400000;
+  const gained = last.c - first.c;
+  if (days < 1 || gained <= 0) return null;
+  const perDay = gained / days;
+  const need = target - current;
+  const etaDays = Math.ceil(need / perDay);
+  const date = new Date(Date.now() + etaDays * 86400000);
+  return { days: etaDays, date, perDay };
+}
+
+function fmtDays(days) {
+  if (days <= 45) return `${days} day${days === 1 ? "" : "s"}`;
+  const months = days / 30.44;
+  if (months < 24) return `~${months.toFixed(1)} months`;
+  return `~${(months / 12).toFixed(1)} years`;
+}
+
+/* ---------- 4. RENDERING ---------------------------------------------------- */
+function medalCardHtml(m) {
+  const count = MedalStore.get(m.key);
+  const ti = tierIndex(m, count);
+  const tierName  = ti < 0 ? "No medal" : TIER_NAMES[ti];
+  const tierColor = ti < 0 ? "#565d72" : TIER_COLORS[ti];
+  const next = nextTier(m, count);
+
+  const prevMin = ti < 0 ? 0 : m.tiers[ti];
+  const pct = next
+    ? Math.min(100, Math.round(100 * (count - prevMin) / (next.min - prevMin)))
+    : 100;
+  const progressText = next
+    ? `${count.toLocaleString()} / ${next.min.toLocaleString()} → ${next.name}`
+    : `${count.toLocaleString()} — max tier`;
+
+  const delta = lastDelta(m.key);
+  const deltaHtml = !delta
+    ? `<span class="delta-flat">no previous measurement</span>`
+    : delta.diff === 0
+      ? `<span class="delta-flat">±0 since ${delta.from.d}</span>`
+      : `<span class="${delta.diff > 0 ? "delta-up" : "delta-down"}">${delta.diff > 0 ? "+" : ""}${delta.diff.toLocaleString()} since ${delta.from.d}</span>`;
+
+  const proj = projectPlatinum(m);
+  const projHtml = !proj
+    ? `<span class="delta-flat">ETA Platinum: — (needs 2+ dated updates)</span>`
+    : proj.days === 0
+      ? `<span class="delta-up">Platinum reached 🏆</span>`
+      : `<span style="color:var(--cyan)">ETA Platinum: ≈ ${fmtDays(proj.days)} (${proj.date.toISOString().slice(0, 10)})</span>`;
+
+  return `
+    <div class="medal-card">
+      <div class="flex items-center justify-between gap-2">
+        <span class="text-xs font-semibold" style="color:${m.color}">${m.name}</span>
+        <span class="medal-tier" style="background:${tierColor}22; color:${tierColor}">${tierName}</span>
+      </div>
+      <div class="text-[10px] text-[var(--text-faint)]">${m.desc}</div>
+      <div class="medal-bar"><div style="width:${pct}%; background:${next ? next.color : tierColor};"></div></div>
+      <div class="medal-meta font-mono text-[var(--text-muted)]">${progressText}</div>
+      <div class="medal-meta font-mono">${deltaHtml}</div>
+      <div class="medal-meta font-mono">${projHtml}</div>
+      <div class="flex items-center gap-1.5 mt-1">
+        <button class="medal-btn" data-medal="${m.key}" data-delta="-10" title="−10">−</button>
+        <input type="number" min="0" class="medal-count" data-medal-input="${m.key}" value="${count}" />
+        <button class="medal-btn" data-medal="${m.key}" data-delta="10" title="+10">+</button>
+      </div>
+    </div>`;
+}
+
+/* How far into the Platinum level a medal is (0 → 1+). Below Gold it is
+   negative; clamps to 0 for display/ranking. */
+function platinumProgress(medal) {
+  const count = MedalStore.get(medal.key);
+  const [goldMin, platMin] = [medal.tiers[2], medal.tiers[3]];
+  return platMin === goldMin ? 1 : (count - goldMin) / (platMin - goldMin);
+}
+
+/* Dynamic order: closest to finishing Platinum first; completed (Platinum)
+   medals go last. Ties broken by absolute count, then by name. */
+function sortByPlatinumProximity(list) {
+  return [...list].sort((a, b) => {
+    const aDone = MedalStore.get(a.key) >= a.tiers[3];
+    const bDone = MedalStore.get(b.key) >= b.tiers[3];
+    if (aDone !== bDone) return aDone ? 1 : -1;
+    if (aDone && bDone) return a.name.localeCompare(b.name);
+    const pa = Math.max(0, platinumProgress(a));
+    const pb = Math.max(0, platinumProgress(b));
+    if (pb !== pa) return pb - pa;
+    return a.name.localeCompare(b.name);
+  });
+}
+
+/* Collapse state per section, kept while the page is open. */
+const doneSectionOpen = { generalDoneWrap: false, typeDoneWrap: false };
+const GRID_CLASSES = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3";
+
+/* Renders one medal group: active medals in the main grid, Platinum
+   medals in a collapsible "Concluídas" section underneath. */
+function renderMedalGroup(gridId, doneWrapId, list) {
+  const done = [];
+  const active = [];
+  sortByPlatinumProximity(list).forEach(m => {
+    (MedalStore.get(m.key) >= m.tiers[3] ? done : active).push(m);
+  });
+  document.getElementById(gridId).innerHTML = active.map(medalCardHtml).join("");
+  const wrap = document.getElementById(doneWrapId);
+  const open = doneSectionOpen[doneWrapId];
+  wrap.innerHTML = done.length ? `
+    <button class="btn w-full justify-center mt-1" data-done-toggle="${doneWrapId}">
+      🏆 Concluídas (${done.length}) <span class="text-[var(--text-faint)]">${open ? "▾" : "▸"}</span>
+    </button>
+    <div class="${GRID_CLASSES} ${open ? "" : "hidden"}" data-done-grid>${done.map(medalCardHtml).join("")}</div>` : "";
+}
+
+function renderMedals() {
+  renderMedalGroup("generalMedalsGrid", "generalDoneWrap", GENERAL_MEDALS);
+  renderMedalGroup("typeMedalsGrid", "typeDoneWrap", TYPE_MEDALS);
+  renderOverview();
+}
+
+function renderOverview() {
+  const counts = { Bronze: 0, Silver: 0, Gold: 0, Platinum: 0, None: 0 };
+  let done = 0;
+  ALL_MEDALS.forEach(m => {
+    const ti = tierIndex(m, MedalStore.get(m.key));
+    if (ti < 0) counts.None++;
+    else counts[TIER_NAMES[ti]]++;
+    if (ti === 3) done++;
+  });
+  const cards = [
+    { label: "Total Medals", value: ALL_MEDALS.length, color: "#4f8ef7" },
+    { label: "Platinum",     value: counts.Platinum,   color: "#e5e7eb" },
+    { label: "Gold",         value: counts.Gold,       color: "#fbbf24" },
+    { label: "Silver",       value: counts.Silver,     color: "#94a3b8" },
+    { label: "Bronze",       value: counts.Bronze,     color: "#d97706" },
+    { label: "All Platinum", value: Math.round(100 * done / ALL_MEDALS.length) + "%", color: "#22d3ee" },
+  ];
+  document.getElementById("medalOverview").innerHTML = cards.map(c => `
+    <div class="card p-3 text-center">
+      <div class="font-display text-lg" style="color:${c.color}">${c.value}</div>
+      <div class="text-[10px] uppercase tracking-wider text-[var(--text-muted)]">${c.label}</div>
+    </div>`).join("");
+}
+
+/* ---------- 5. EVENTS -------------------------------------------------------- */
+["typeMedalsGrid", "generalMedalsGrid", "typeDoneWrap", "generalDoneWrap"].forEach(id => {
+  const grid = document.getElementById(id);
+  grid.addEventListener("click", (e) => {
+    const toggle = e.target.closest("button[data-done-toggle]");
+    if (toggle) {
+      doneSectionOpen[toggle.dataset.doneToggle] = !doneSectionOpen[toggle.dataset.doneToggle];
+      renderMedals();
+      return;
+    }
+    const btn = e.target.closest("button[data-medal]");
+    if (!btn) return;
+    const key = btn.dataset.medal;
+    MedalStore.set(key, MedalStore.get(key) + Number(btn.dataset.delta));
+    renderMedals();
+  });
+  grid.addEventListener("change", (e) => {
+    const input = e.target.closest("input[data-medal-input]");
+    if (!input) return;
+    MedalStore.set(input.dataset.medalInput, input.value);
+    renderMedals();
+  });
+});
+
+/* ---------- 6. EXPORT / IMPORT ---------------------------------------------- */
+document.getElementById("btnMedalExport").addEventListener("click", () => {
+  const payload = { counts: MedalStore.counts, history: MedalStore.history };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `medal-tracker-progress-${new Date().toISOString().slice(0, 10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById("btnMedalImport").addEventListener("click", () => {
+  document.getElementById("medalImportFile").click();
+});
+
+document.getElementById("medalImportFile").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      const parsed = JSON.parse(ev.target.result);
+      if (typeof parsed !== "object" || parsed === null) throw new Error("Invalid file");
+      /* Accept both the new {counts, history} format and a bare counts map. */
+      MedalStore.replaceAll(parsed.counts || parsed.history ? parsed : { counts: parsed, history: {} });
+      renderMedals();
+      alert("Medal progress imported successfully.");
+    } catch (err) {
+      alert("Could not import this file. Please select a valid Medal Tracker export.");
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = "";
+});
+
+/* ---------- 7. INIT ---------------------------------------------------------- */
+renderMedals();
+</script>
+</body>
+</html>

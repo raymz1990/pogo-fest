@@ -184,6 +184,7 @@
       </div>
       <div class="h-10 w-px bg-[var(--border)] hidden md:block"></div>
       <div class="flex items-center gap-2">
+        <a href="medals.html" class="btn" title="Open the medals tracker page">🏅 Medals</a>
         <button id="btnExport" class="btn" title="Export your saved progress to a JSON file">⭳ Export</button>
         <button id="btnImport" class="btn" title="Import a previously exported progress file">⭱ Import</button>
         <input type="file" id="importFile" accept="application/json" class="hidden" />
@@ -210,9 +211,8 @@
           <option value="all">All Statuses</option>
           <option value="released">Released</option>
           <option value="captured">Captured</option>
-          <option value="missing">Missing</option>
           <option value="shiny">Shiny</option>
-          <option value="hundred">Hundo</option> 
+          <option value="hundred">Hundo</option>
           <option value="lucky">Lucky</option>
           <option value="xxl">XXL</option>
           <option value="xxs">XXS</option>
@@ -227,6 +227,10 @@
           <option value="951">Show all</option>
         </select>
         <button id="btnClearFilters" class="btn">Clear filters</button>
+        <label class="flex items-center gap-1.5 cursor-pointer text-xs text-[var(--text-muted)] hover:text-white transition-colors select-none" title="Invert the selected status: shows Pokémon that DON'T have the chosen status (with 'All Statuses' it shows not-yet-captured Pokémon)">
+          <input type="checkbox" id="filterMissing" class="flag-check" style="--flag-color:#f45866" />
+          <span>Missing only</span>
+        </label>
       </div>
     </div>
   </section>
@@ -342,7 +346,7 @@ const FLAG_KEYS = FLAG_DEFS.map(f => f.key);
    (if capable) or a frozen, non-interactive cell (if not). */
 
 const MEGA_CAPABLE = new Set([
-  3, 6, 9, 15, 18, 65, 71, 80, 94, 115, 121, 127, 130, 142, 149, 150, 
+  3, 6, 9, 15, 18, 65, 71, 80, 94, 115, 127, 130, 142, 149, 150, 
   181, 208, 212, 214, 227, 229, 248,
   254, 257, 260, 282, 302, 303, 306, 308, 310, 319, 323, 334, 354,
   359, 362, 373, 376, 380, 381, 382, 383, 384, 
@@ -432,6 +436,7 @@ const State = {
   gen: "all",
   type: "all",
   status: "all",
+  missingOnly: false,
   sortKey: "id",
   sortDir: "asc",
   page: 1,
@@ -452,9 +457,17 @@ function matchesStatus(p, status) {
   if (status === "all") return true;
   if (status === "released") return true; // dataset only contains released species
   if (status === "captured") return Store.get(p.id, "captured");
-  if (status === "missing") return !Store.get(p.id, "captured");
   if (status === "mega") return Store.get(p.id, "mega") || Store.get(p.id, "megaX") || Store.get(p.id, "megaY");
   return Store.get(p.id, status);
+}
+
+/* The "Missing only" checkbox is bound to the STATUS select: it inverts
+   the selected status (status "Shiny" + Missing => Pokémon that do NOT
+   have a shiny; "Captured" + Missing => not captured; "All"/"Released"
+   + Missing => not captured either, since every species is released). */
+function missingCriterion(p) {
+  const status = (State.status === "all" || State.status === "released") ? "captured" : State.status;
+  return !matchesStatus(p, status);
 }
 
 function getFilteredData() {
@@ -462,7 +475,7 @@ function getFilteredData() {
     .filter(p => (State.gen === "all" || p.gen === State.gen))
     .filter(p => (State.type === "all" || p.types.includes(State.type)))
     .filter(p => matchesSearch(p, State.search))
-    .filter(p => matchesStatus(p, State.status));
+    .filter(p => State.missingOnly ? missingCriterion(p) : matchesStatus(p, State.status));
 }
 
 function sortData(list) {
@@ -491,7 +504,7 @@ const SUMMARY_DEFS = [
 ];
 
 function renderSummary() {
-  const list = POKEDEX; // summary always reflects the full dex, not the current filter
+  const list = getFilteredData(); // summary cards react to the active filters
   const grid = document.getElementById("summaryGrid");
   grid.innerHTML = SUMMARY_DEFS.map(def => `
     <div class="stat-card" style="--accent-color:${def.color}">
@@ -500,8 +513,10 @@ function renderSummary() {
     </div>
   `).join("");
 
-  const captured = list.filter(p => Store.get(p.id, "captured")).length;
-  const pct = list.length ? captured / list.length : 0;
+  /* The header ring always shows total dex completion (captured / all
+     released Pokémon), independent of the active filters. */
+  const captured = POKEDEX.filter(p => Store.get(p.id, "captured")).length;
+  const pct = captured / POKEDEX.length;
   const circumference = 150.8;
   const offset = circumference * (1 - pct);
   document.getElementById("scanRingProgress").style.strokeDashoffset = offset.toFixed(1);
@@ -830,6 +845,12 @@ document.getElementById("filterStatus").addEventListener("change", (e) => {
   renderTable();
 });
 
+document.getElementById("filterMissing").addEventListener("change", (e) => {
+  State.missingOnly = e.target.checked;
+  State.page = 1;
+  renderTable();
+});
+
 document.getElementById("pageSize").addEventListener("change", (e) => {
   State.pageSize = Number(e.target.value);
   State.page = 1;
@@ -837,15 +858,17 @@ document.getElementById("pageSize").addEventListener("change", (e) => {
 });
 
 document.getElementById("btnClearFilters").addEventListener("click", () => {
-  State.search = "all"; State.search = "";
+  State.search = "";
   State.gen = "all";
   State.type = "all";
   State.status = "all";
+  State.missingOnly = false;
   State.page = 1;
   document.getElementById("searchInput").value = "";
   document.getElementById("filterGen").value = "all";
   document.getElementById("filterType").value = "all";
   document.getElementById("filterStatus").value = "all";
+  document.getElementById("filterMissing").checked = false;
   renderTable();
 });
 
